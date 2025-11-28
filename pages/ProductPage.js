@@ -10,7 +10,19 @@ exports.ProductPage = class ProductPage{
         this.categoryWomen = page.locator("//a[@href='#Women']");
         this.dresssection = page.locator("//a[@href='/category_products/1']");
         this.brandPolo = page.locator("//a[@href='/brand_products/Polo']");
-        this.singleProduct = page.locator("//a[@href='/product_details/3']")
+
+        //add to cart
+        this.singleProduct1 = page.locator("//a[@href='/product_details/3']");
+        this.singleProduct2 = page.locator("//a[@href='/product_details/4']");
+        this.singleProduct3 = page.locator("//a[@href='/product_details/38']");
+        this.addToCartButton = page.locator("//button[@type='button']");
+        this.continueShopButton = page.locator("//button[@data-dismiss='modal']");
+        this.viewCartButton = page.locator("(//a[@href='/view_cart'])[2]");
+
+        // cart
+        this.price = page.locator("(//td[@class='cart_price'])[1]");
+        this.quantity = page.locator ("(//td[@class='cart_quantity'])[1]");
+        this.total = page.locator("(//td[@class='cart_total'])[1]")
     }
     async clickProductButton(){
         await (this.productButton).click();
@@ -47,4 +59,36 @@ exports.ProductPage = class ProductPage{
          await expect((this.page).getByText('Brand - Polo Products')).toBeVisible();
     }
 
+    //add to cart
+    async selectProduct1(){
+        await (this.singleProduct1).click();
+    }
+    async selectProduct2(){
+        await (this.singleProduct2).click();
+    }
+    async selectProduct3(){
+        await (this.singleProduct3).click();
+    }
+    async clickcontinueShopButton(){
+        await (this.continueShopButton).click();
+    }
+    async clickAddToCartButton(){
+        await (this.addToCartButton).click();
+    }
+    async clickViewCartButton(){
+        await (this.viewCartButton).click();
+    }
+    async checkProduct1Name(){
+        await expect((this.page).getByText('Sleeveless Dress')).toBeVisible();
+    }
+    async checkProduct2Name(){
+        await expect((this.page).getByText('Stylish Dress')).toBeVisible();
+    }
+    async checkProduct3Name(){
+        await expect((this.page).getByText('Rose Pink Embroidered Maxi Dress')).toBeVisible();
+    }
+
+    async checkAddedModal(){
+        await expect((this.page).getByText('Added!')).toBeVisible();
+    }
 }
