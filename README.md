@@ -9,4 +9,4 @@ Step to install:
 2. Install Vs code.
 3. clone the file from the git.
 4. Install playwright test from the extentions.
-5. open the command prompt and enter "npx playwright tests"
+5. open the command prompt and enter "npx playwright test"
