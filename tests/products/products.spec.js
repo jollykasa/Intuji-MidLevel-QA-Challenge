@@ -17,5 +17,19 @@ test.describe('two tests', () => {
       await product.clickSearcButton();
       await product.checkSearchProduct();
   });
-
+  test('search from category', async ({ page }) => {
+      const product = new ProductPage(page);
+      await product.selectWomenCategory();
+      await product.selectDress();
+      await product.validWomenDressCategory();
+  });
+    test('search from brand', async ({ page }) => {
+      const product = new ProductPage(page);
+      await product.selectBrandPolo();
+      await product.validBrandPolo();
+  });
 });
+
+test.afterAll('close window',async({page})=>{
+  await page.close();
+})
