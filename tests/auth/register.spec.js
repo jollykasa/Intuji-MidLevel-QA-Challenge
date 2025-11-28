@@ -1,8 +1,9 @@
 import {test} from '@playwright/test';
+import path from 'path';
 
 import { RegisterPage } from '../../pages/RegisterPage.js';
 import { user } from '../../fixture/user.js';
-const userFile = path.join(__dirname, '../playwright/.auth/register.json');
+const userFile = path.join(__dirname, '../../userStore/.auth/register.json');
 
 test("register User", async({page})=>{
      const register = new RegisterPage(page);

@@ -4,7 +4,7 @@ import path from 'path';
 import { LoginPage } from '../../pages/LoginPage.js';
 import { user } from '../../fixture/user.js';
 
-const authFile = path.join(__dirname, '../playwright/.auth/user.json');
+const authFile = path.join(__dirname, '../../playwright/.auth/user.json');
 
 
 setup('authenticate', async ({ page }) => {
